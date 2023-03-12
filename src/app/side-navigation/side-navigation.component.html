@@ -1,0 +1,23 @@
+<div class="title-container">
+    <ng-container *ngIf="!isMobileTabDisplay">
+        <mat-icon class="title-icon" matTooltip="Discover">theaters</mat-icon>
+    <h1 class="title-page">Discover</h1>
+    </ng-container>
+</div>
+
+<mat-sidenav-container class="example-container" autosize>
+    <mat-nav-list>
+        <mat-list-item [routerLink]="['/home']">
+          <span class="full-width" *ngIf="!isMobileTabDisplay">Home</span>
+          <mat-icon mat-list-icon matTooltip="Home">home</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+            <span class="full-width" *ngIf="!isMobileTabDisplay">Search</span>
+            <mat-icon mat-list-icon matTooltip="Search">search</mat-icon>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/my-favorite']">
+            <span class="full-width" *ngIf="!isMobileTabDisplay">Your Collections</span>
+            <mat-icon mat-list-icon class="material-symbols-outlined" matTooltip="Your Collections">favorite</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+</mat-sidenav-container>

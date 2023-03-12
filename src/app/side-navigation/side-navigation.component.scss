@@ -1,0 +1,19 @@
+.title-container {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+.mat-icon.title-icon {
+    font-size: 50px !important;
+    color: #aa2305;
+}
+
+.title-page {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+:host ::ng-deep .mat-drawer-content {
+    background-color: #000;
+}

@@ -1,0 +1,90 @@
+<div 
+    class="backdrop" 
+    style="background-image: linear-gradient(to top, rgb(0 0 0 / 67%), rgb(158 79 79 / 17%)), url({{imgUrlOriginal+backdropImg}})" 
+></div>
+
+<div class="grid m-0" style="position: absolute;top: 35%;">
+    <div class="col-12 md:col-4 lg:col-3">
+        <div style="text-align: center;">
+            <img [src]="imgUrl+dataMovie?.poster_path" class="poster-img" loading="lazy"> <br><br>
+            <h4>Genre</h4>
+                <mat-chip-list aria-label="List Genre" class="center">
+                    <ng-container *ngFor="let genre of dataMovie?.genres">
+                        <mat-chip color="accent">
+                            {{genre?.name}}
+                          </mat-chip>
+                    </ng-container>
+                </mat-chip-list>    
+                <br><h4>Spoken Language</h4>
+                <mat-chip-list aria-label="List Genre" class="center">
+                    <ng-container *ngFor="let language of dataMovie?.spoken_languages">
+                        <mat-chip color="primary">
+                            {{language?.name}}
+                          </mat-chip>
+                    </ng-container>
+                </mat-chip-list>    
+        </div>
+    </div>
+    <div class="col-12 md:col-8 lg:col-6">
+        <h1>{{dataMovie?.title}} <span><button mat-mini-fab extended (click)="setFavorite()" style="background-color: #4a4a4a;" matTooltip="Favorite">
+            <mat-icon [ngClass]="isFavorite ? 'red-btn' : 'grey-btn'">favorite</mat-icon>
+        </button></span></h1>
+        <p>{{dataMovie?.tagline}}</p>
+        <p>{{dataMovie?.overview}}</p>
+
+        <mat-list>
+            <mat-list-item class="list-item">
+                <p>Popularity :</p>
+                <p>{{dataMovie?.popularity}}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="list-item">
+                <p>Runtime :</p>
+                <p>{{toHoursAndMinutes(dataMovie?.runtime)}}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="list-item">
+                <p>Revenue :</p>
+                <p>{{dataMovie?.revenue | currency}}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="list-item">
+                <p>Release Date :</p>
+                <p>{{dataMovie?.release_date}}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="list-item">
+                <p>Vote Average:</p>
+                <p>{{dataMovie?.vote_average}}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="list-item">
+                <p>Vote Count:</p>
+                <p>{{dataMovie?.vote_count}}</p>
+            </mat-list-item>
+        </mat-list>
+        <h5><a [href]="dataMovie?.homepage" target="_blank">Go to Movie's Homepage</a></h5>
+        
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="grid">
+            <mat-card style="background-color: #00000087;">
+                <mat-card-title>Production Companies</mat-card-title>
+                <ng-container *ngIf="dataMovie?.production_companies">
+                    <div class="grid" *ngFor="let company of dataMovie?.production_companies">
+                        <div class="col-3" style="display: flex; align-items: center;">
+                            <img loading="lazy" [src]="imgUrl+company?.logo_path" class="img-poster" [matTooltip]="company?.name">
+                            <p style="margin-left: 15px;">{{company?.name}}</p>    
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!dataMovie?.production_companies">
+                    <p>There is no Production Companies</p>
+                </ng-container>
+            </mat-card>
+        </div>
+        
+        
+    </div>
+</div>

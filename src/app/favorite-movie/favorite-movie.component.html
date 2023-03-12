@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Your Collections</h1>
+    <ng-container *ngIf="movies.length">
+        <div class="group-btn">
+            <button class="m-5" mat-raised-button (click)="saveOrderFavorite()" matTooltip="Save the order of your collections">Save</button>
+            <button class="m-5" mat-raised-button *ngIf="restoreData" (click)="restoreOrderFavorite()" matTooltip="Restore Previous Version">Restore Previous Version</button>
+            <button class="m-5" matTooltip="Drag and drop cards to change the order of your favorite movies. Click the button 'Restore previous version' to change the order of the movie before the changes" mat-mini-fab>?</button>
+        </div>
+        
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+            <mat-card *ngFor="let movie of movies; let indexMovie = index" cdkDrag class="fav-card">
+                <mat-card-content>
+                    <div class="grid m-0">
+                        <div class="col-3" style="display: flex; align-items: center;">
+                            <h3 style="margin-right: 15px">{{indexMovie+1}}</h3>
+                            <img [src]="imgUrl+'.'+movie.poster_path" loading="lazy" class="img-poster">
+                        </div>
+                        <div class="col">
+                            <h3>{{movie.original_title}}</h3>
+                            <p>{{movie?.updated_time | date:'medium'}}</p>                            
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-container>
+    <div *ngIf="!movies.length">
+        <h2>There is no Data Collections</h2>
+    </div>
+</div>
+
+
+

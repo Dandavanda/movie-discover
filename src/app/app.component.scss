@@ -1,0 +1,16 @@
+.nav-container {
+    height: 100vh;
+    background-color: #191b1f;
+}
+
+.mat-drawer.mat-drawer-side {
+    background-color: #000000;
+    width: 20%;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 991px) {
+    .mat-drawer.mat-drawer-side {
+        width: 65px;
+    }   
+}

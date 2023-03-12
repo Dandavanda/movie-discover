@@ -1,0 +1,91 @@
+<mat-toolbar>
+    <!-- <button mat-mini-fab color="primary">
+        <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary">
+        <mat-icon>navigate_next</mat-icon>
+    </button> -->
+</mat-toolbar>
+<div class="container">
+    <div class="grid m-0" *ngIf="allUpcoming">
+        <div class="col-12 md:col-9">
+            <mat-card class="backdrop" style="background-image: linear-gradient(124deg, rgba(2,0,36,1) 12%, rgba(60,9,121,0.6846007436260624) 50%, rgba(13,107,126,1) 100%), url({{imgUrl+allUpcoming[4]?.backdrop_path}})">
+                <mat-card-content>
+                    <br><h1 style="font-weight: 200;font-size: xxx-large;">Discover</h1><br>
+                    <h3 style="font-weight: lighter">"Discover the best movies of all time! Browse our extensive list of must-see films and create your ultimate watchlist today."</h3>
+                </mat-card-content>
+            </mat-card>
+            <div class="grid sort-btn">
+                <div class="col-12 md:col-12 lg:col-6">
+                    <mat-button-toggle-group [formControl]="sortControl">
+                        <ng-container *ngFor="let toogle of sortData">
+                            <mat-button-toggle [value]="toogle.value" (click)="sortingData(toogle.value)">
+                                <ng-container *ngIf="sortControl.value === toogle.value">
+                                    <mat-icon>{{sort === 'desc' ? 'arrow_downward' : 'arrow_upward'}}</mat-icon>
+                                </ng-container>
+                                <span>{{toogle.item}}</span>
+                              </mat-button-toggle>
+                        </ng-container>
+                    </mat-button-toggle-group>
+                </div>
+                <div class="col-12 md:col-12 lg:col-6" style="padding-right:0px">
+                    <mat-form-field appearance="outline" [formGroup]="dateForm">
+                        <mat-label>Release Date Filter</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                          <input matStartDate placeholder="Start date" formControlName="start">
+                          <input matEndDate placeholder="End date" formControlName="end">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                    <button mat-button (click)="getMovieList()" mat-raised-button style="margin: 0px 5px;">Filter</button>
+                    <button mat-button (click)="resetBtn()" mat-raised-button>Reset</button>
+                </div>
+            </div>
+            <div class="grid m-0">
+                <ng-container *ngFor="let movie of dataAllMovies"> 
+                    <div class="col-12 md:col-6 lg:col-3 card-container">
+                        <mat-card 
+                            class="movie-card" 
+                            style="background-image: linear-gradient(to right, rgb(0 14 23 / 84%), rgb(61 13 13 / 57%)), url({{imgUrl+movie.poster_path}})" 
+                            [routerLink]="['/movie', movie.id]"
+                            matRipple
+                        >
+                            <mat-card-content>
+                                <mat-card-header>
+                                    <mat-card-title class="m-0">
+                                        {{movie?.original_title}}
+                                    </mat-card-title>
+                                </mat-card-header>
+                                <div class="description">
+                                    <p [matTooltip]="movie?.genre_names.join()" style="font-size: smaller;margin: 0px;padding: 0px; color: #fffffff5">
+                                        {{movie?.genre_names.join()}}
+                                    </p><br>
+                                    <p>{{movie?.overview}}</p>
+                                </div>
+                                <p style="font-size: x-small;">Popularity: {{movie?.popularity}}</p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="col-12 md:col-3" *ngIf="allUpcoming">
+            <h3 style="text-align: center;">Upcoming Movie</h3>
+            <div class="grid m-0" *ngFor="let upcoming of allUpcoming.slice(0, 5)" style="display: contents;">
+                <mat-card style="background-color: #000">
+                    <div class="grid m-0">
+                        <div class="col-3">
+                            <img [src]="imgRev+upcoming?.poster_path" loading="lazy" style="width: 40px">
+                        </div>
+                        <div class="col">
+                            <p style="margin-bottom: 3px">{{upcoming.original_title}}</p>
+                            <p style="font-size: x-small;"> Release date: {{upcoming.release_date}}</p>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    
+</div>

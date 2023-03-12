@@ -1,0 +1,80 @@
+.m-0 {
+    margin: 0px !important;
+}
+
+.btn-filter {
+    color: #aa2305;
+}
+
+.sort-btn {
+    padding-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.backdrop {
+    background-size: cover;    
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 275px;
+}
+
+.description p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.movie-card:hover {
+    box-shadow: 0 10px 30px 0 rgb(138 136 136 / 65%);
+}
+
+:host ::ng-deep .mat-card-header-text {
+    margin: 0px !important;
+}
+:host ::ng-deep .mat-form-field-type-mat-date-range-input .mat-form-field-infix {
+    display: flex;
+    align-items: center;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    padding-top: 0px;
+    padding-bottom: 3px;
+}
+
+:host ::ng-deep .mat-form-field .mat-form-field-wrapper {
+    padding: 0px
+}
+
+.movie-card {
+    background-size: cover;    
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+ 
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    .movie-card {
+        height: 300px;   
+    }
+    // .card-container {
+    //     display: flex;
+    //     justify-content: center;
+    // }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .movie-card {
+        height: 250px;   
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .movie-card {
+     height: 250px;   
+    }
+}

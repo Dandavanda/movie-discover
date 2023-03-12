@@ -1,0 +1,47 @@
+.m-0 {
+    margin: 0px !important;
+}
+
+.poster-img {
+    width: 170px;
+}
+
+.list-item {
+    font-size: small;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.img-poster {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.backdrop {
+    background-size: cover;    
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 275px;
+    position: relative;
+}
+
+.poster-img {
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px 0 rgb(138 136 136 / 65%);
+}
+
+.red-btn {
+    color: rgb(156, 7, 7)
+}
+.grey-btn {
+    color: rgb(195, 195, 195)
+}
+
+:host ::ng-deep .mat-list-item-content {
+    justify-content: space-between;
+}
