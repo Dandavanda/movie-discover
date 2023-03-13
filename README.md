@@ -1,10 +1,32 @@
 # DiscoverMovie
-
+A responsive movies web app built with Angular 13 with The Movie DB API.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+
+### Feature 
+- Homepage
+  - Filter based on release date.
+  - Sorting movie by Popularity, Release Date, and Vote Count.
+
+- Detail
+  - Get detail information about the movie.
+  - Add a movie as your favorite by clicking the love button.
+
+- Your Collection
+  - Get information about your favorite movie.
+  - Update the Order of your favorite movie by click and drag the card. 
+  - Functionality to save the newest order.
+  - Restore data to previous order.
 
 ## Getting started
 Make sure you have the Angular CLI installed globally. It use NPM to manage the dependencies, so we strongly recommend you to use it. you can install it from Here, then run `npm install` to resolve all dependencies (might take a minute).
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+```bash
+git clone https://github.com/Dandavanda/movie-discover.git
+cd movie-discover
+npm install
+ng serve
+```
 
 ## Code scaffolding
 
