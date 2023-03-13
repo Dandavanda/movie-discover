@@ -2,6 +2,7 @@
 A responsive movies web app built with Angular 13 with The Movie DB API.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
+### [Demo](https://movie-discover-000.netlify.app/home)
 ### Feature 
 - Homepage
   - Filter based on release date.
