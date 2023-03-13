@@ -40,7 +40,6 @@ export class DetailFilmComponent implements OnInit, OnDestroy {
   getMovieList(id: string) {  
     this.subs.sink = this.movieService.getOneMovie(id).subscribe((resp) => {
       if(resp) {
-        console.log('data movie', resp);
         this.dataMovie = resp;
         this.backdropImg = resp.backdrop_path ? resp.backdrop_path : '';
       }
@@ -48,20 +47,12 @@ export class DetailFilmComponent implements OnInit, OnDestroy {
   }
 
   checkIsFavorite(id: string) {
-    console.log('test pertama', id)
      const movie =  _.cloneDeep(id);
     let dataMovie = this.movieService.getFavoriteMovie() ? this.movieService.getFavoriteMovie() : [];
     
-
     if (dataMovie?.length && id) {
       const listId = dataMovie.map((data: any) => data.id)
-      console.log('listId :::',listId); 
-
-      // const searchMovie = listId.includes(parseInt(id));
-      // console.log('searchMovie::', searchMovie)
-      
       this.isFavorite = listId.includes(parseInt(id));
-      console.log('is favo', this.isFavorite)
     }
   }
 
@@ -69,17 +60,13 @@ export class DetailFilmComponent implements OnInit, OnDestroy {
     // this.checkIsFavorite();
     const currentTime = new Date();
     if(this.isFavorite) {
-      console.log('isFavorite')
       this.movieService.removeFavoriteMovie(this.movieId);
       this.isFavorite = false;
     } else {
-      console.log(' not Favorite')
       this.isFavorite = true;
       this.dataMovie.updated_time = currentTime;
-      console.log('datamovie::', this.dataMovie);
       this.movieService.addFavoriteMovie(this.dataMovie) 
     }
-    console.log('favorite::', this.isFavorite);
   }
 
   toHoursAndMinutes(totalMinutes: any) {

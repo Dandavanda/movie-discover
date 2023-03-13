@@ -73,7 +73,6 @@ export class AppServiceService {
     let listMovie = dataMovie ? JSON.parse(dataMovie) : [];
     if(id && listMovie?.length) {
       listMovie = listMovie.filter((data: any) => data.id !== parseInt(id));
-      console.log('remove::',id, listMovie)
     }
     localStorage.setItem('favoriteMovie', JSON.stringify(listMovie));
   }

@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit, OnDestroy {
             }
           });
         }
-        console.log('result:::', this.dataAllMovies);
       }
     })
   }
@@ -73,7 +72,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       if(resp) {
         this.getMovieList();
         this.allGendre = resp.genres;
-        console.log('result genre:::', resp);
       }
     })
   }
@@ -83,7 +81,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       if(resp) {
         this.getMovieList();
         this.allUpcoming = resp.results;
-        console.log('result upcomming:::', resp);
       }
     })
   }
@@ -104,7 +101,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   sortingData(data: any) {
     this.sort = this.sort === 'desc' ? 'asc' : 'desc';
     this.selectedSort = data.value;
-    console.log(this.sort);
     this.getMovieList();
   }
 

@@ -26,15 +26,12 @@ export class FavoriteMovieComponent implements OnInit {
 
     const orderFavorite = this.movieService.getCurrentOrder();
     if(orderFavorite && this.movies) {
-      console.log('before::', this.movies)
       this.sortMovie(orderFavorite); 
       this.checkRestore();
-      console.log('after::', this.movies)
     }
   }
 
   sortMovie(listId:any) {
-    console.log('list ::', listId)
     let notListedMovie:string[] = [];
     let listedMovie:string[] = [];
     this.movies.forEach((data:any) => {
@@ -49,27 +46,21 @@ export class FavoriteMovieComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    console.log('event::', event);
-    console.log('afterdr drop::', this.movies);
     moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
   }
 
 
   saveOrderFavorite() {
     const arrayId: string[] = this.movies.map((data: any) => data.id);
-    console.log('array id', arrayId);
     
     this.movieService.saveOrderFavorite(arrayId);
     this.restoreData = this.movieService.getPrevOrder();
-    console.log('prev data after save', this.restoreData)
   }
 
   restoreOrderFavorite() {
-    console.log('before click button restore', this.restoreData)
     this.sortMovie(this.restoreData);
     this.restoreData = this.movieService.getPrevOrder();
     this.movieService.saveOrderFavorite(this.restoreData);
-    console.log('after click button restore', this.restoreData)
     this.checkRestore();
     
   }
