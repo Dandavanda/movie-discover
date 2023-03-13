@@ -17,12 +17,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - Functionality to save the newest order.
   - Restore data to previous order.
 
-### Overview
-![Homepage](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/homepage.png)
-![Homepage-tablet](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/homepage-tablet.png)
-![Detail](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/detail.png)
-![Your Collections](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/yourcollections.png)
-
 ## Getting started
 Make sure you have the Angular CLI installed globally. It use NPM to manage the dependencies, so we strongly recommend you to use it. you can install it from Here, then run `npm install` to resolve all dependencies (might take a minute).
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -33,6 +27,12 @@ cd movie-discover
 npm install
 ng serve
 ```
+
+### Overview
+![Homepage](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/homepage.png)
+![Homepage-tablet](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/homepage-tablet.png)
+![Detail](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/detail.png)
+![Your Collections](https://github.com/Dandavanda/movie-discover/blob/main/src/assets/img-overview/yourcollections.png)
 
 ## Code scaffolding
 
